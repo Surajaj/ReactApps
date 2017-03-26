@@ -5,10 +5,12 @@ var http = require('http');
 app.set('port', (process.env.PORT || 3000));
 
 app.use(function (req, res, next){
-  if (req.headers['x-forwarded-proto'] === 'http') {
-    next();
-  } else {
+  if (req.headers['x-forwarded-proto'] === 'https') {
+    // console.log("Https so redirect");
     res.redirect('http://' + req.hostname + req.url);
+  } else {
+  	next();
+  	// console.log("Already http");
   }
 });
 
