@@ -1,24 +1,14 @@
 var express = require('express');
-
-// Create our app
 var app = express();
+var http = require('http');
 
-// Middleware
-app.use(function(req, res, next) {
-	if (req.headers['x-forward-proto'] === 'http') {
-		next();
-	} else {
-		res.redirect("http://" + req.hostname + req.url);
-	}
-});
+app.set('port', (process.env.PORT || 3000));
 
-// Server statics
+app.use(express.static(__dirname + '/public'));
+
 app.use(express.static('public'));
 
-// Port
-const PORT = process.env.PORT || 3000;
-
-// Listen
-app.listen(PORT, function() {
-	console.log("Express running at " + PORT);
+http.createServer(app).listen(app.get('port'), function(){
+	var environment = process.env.NODE_ENV || 'development';
+	console.log('Node app is running on port', app.get('port'));
 });
