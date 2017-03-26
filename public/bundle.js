@@ -25026,19 +25026,18 @@
 	var React = __webpack_require__(1);
 
 	var WeatherMessage = function WeatherMessage(_ref) {
-			var temp = _ref.temp,
-			    location = _ref.location;
+		var temp = _ref.temp,
+		    location = _ref.location;
 
-			// var {temp, location} = props;
-			return React.createElement(
-					'h3',
-					null,
-					'It is ',
-					temp,
-					' in ',
-					location,
-					'. '
-			);
+		return React.createElement(
+			'h3',
+			null,
+			'It is ',
+			temp,
+			' in ',
+			location,
+			'. '
+		);
 	};
 	module.exports = WeatherMessage;
 
@@ -26568,9 +26567,18 @@
 
 	var About = function About() {
 		return React.createElement(
-			'h3',
+			'div',
 			null,
-			'About Component '
+			React.createElement(
+				'h3',
+				null,
+				'About '
+			),
+			React.createElement(
+				'p',
+				null,
+				'This is about page...'
+			)
 		);
 	};
 
@@ -26586,9 +26594,18 @@
 
 	var Examples = function Examples() {
 		return React.createElement(
-			'h3',
+			'div',
 			null,
-			'Examples Component '
+			React.createElement(
+				'h3',
+				null,
+				'Examples '
+			),
+			React.createElement(
+				'p',
+				null,
+				'Welcome to example page... '
+			)
 		);
 	};
 
